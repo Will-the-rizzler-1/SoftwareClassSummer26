@@ -39,6 +39,8 @@ public class BasicAnswerKey {
     }
 
     public void printTelemetry(Telemetry telemetry) {
+        // note: I put the "I" prefix on my intake telemetry because FTC Dashboard displays telemetry alphabetically
+        // you don't need to copy this format, but you should find some way to keep your telemetry organized
         telemetry.addLine("---INTAKE---");
         telemetry.addData("I state", intakeState);
         telemetry.addData("I power", intakeMotor.getPower());

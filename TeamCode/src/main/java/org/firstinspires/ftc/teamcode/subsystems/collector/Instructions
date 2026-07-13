@@ -14,7 +14,23 @@ an update function
 a printTelemetry function
 - takes in Telemetry as parameter and prints valuable info to telemetry
 
-getIntakeState() - returns current intake state
-setIntakeState(IntakeState intakeState) - sets the intake state of the collector to the parameter
+a getIntakeState function
+- returns current intake state
+a setIntakeState function
+- takes 1 parameter (datatype IntakeState)
+- sets the intake state of the collector to the parameter
 
 Challenge: only call motor.setPower when the collector power changes to improve loop times by reducing hardware calls
+
+
+
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT

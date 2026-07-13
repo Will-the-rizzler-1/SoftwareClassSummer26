@@ -1,0 +1,57 @@
+Class Requirements-----------------
+
+Static variables-----
+double radiansPerEncoder
+double kP
+double kI
+double kD
+
+Instance Data-----
+turretMotor (datatype DcMotorEx)
+currentAngle (datatype double)
+pid (datatype PIDController)
+targetAngle (datatype double)
+an enum called TurretState with the states POINT_AT_ANGLE & OFF
+instance data of enum
+
+a constructor taking in HardwareMap and instantiating all instance data above
+
+an update function
+- should calculate turret angle
+- if state is OFF, turret should have 0 power
+- if state is POINT_AT_ANGLE, a PID should always be active, controlling the turret to the targetAngle variable
+
+a printTelemetry function
+- takes in Telemetry as parameter and prints valuable info to telemetry (you decide what's valuable)
+
+a getTurretState function
+- returns turretState
+
+a setTurretState function
+- takes a TurretState parameter
+- sets the turret state instance data to the parameter
+
+a setTargetAngle function
+- takes a double parameter
+- sets the targetAngle instance data to the parameter
+
+**-----CHALLENGE-----**
+add a static variable called bangbangPower (datatype double)
+add an instance variable called targetDirection (datatype double)
+add an enum state called SWING_PAST_ANGLE
+
+In the update function:
+- if state is SWING_PAST_ANGLE, you should set power to bangbangPower in the direction of the targetAngle until the encoder surpasses the targetAngle; then, the state should switch to off
+
+You should re-calculate targetDirection in the setTurretState function only if the desired state equals SWING_PAST_ANGLE
+
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
+GOOD VARIABLE NAMES ARE IMPORTANT
