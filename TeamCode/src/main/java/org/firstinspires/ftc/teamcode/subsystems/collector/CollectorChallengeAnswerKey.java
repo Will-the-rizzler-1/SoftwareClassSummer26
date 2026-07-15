@@ -11,22 +11,22 @@ public class CollectorChallengeAnswerKey {
     public static double intakePower = .9;
     public static double outtakePower = -.7;
     private final DcMotorEx intakeMotor;
+    private final Telemetry telemetry;
 
     public enum IntakeState {
         OFF, INTAKE, OUTTAKE
     }
     private IntakeState intakeState;
 
-    public CollectorChallengeAnswerKey(HardwareMap hardwareMap) {
+    public CollectorChallengeAnswerKey(HardwareMap hardwareMap, Telemetry telemetry) {
         // note: there's no need to store hardwareMap as instance data
+        this.telemetry = telemetry;
 
         intakeMotor = hardwareMap.get(DcMotorEx.class, "intake");
         setIntakeState(IntakeState.OFF);
     }
 
-    public void update() {}
-
-    public void printTelemetry(Telemetry telemetry) {
+    public void update() {
         telemetry.addLine("---INTAKE---");
         telemetry.addData("I state", intakeState);
         telemetry.addData("I power", intakeMotor.getPower());

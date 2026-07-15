@@ -11,14 +11,16 @@ public class CollectorBasicAnswerKey {
     public static double intakePower = .9;
     public static double outtakePower = -.7;
     private final DcMotorEx intakeMotor;
+    private final Telemetry telemetry;
 
     public enum IntakeState {
         OFF, INTAKE, OUTTAKE
     }
     private IntakeState intakeState;
 
-    public CollectorBasicAnswerKey(HardwareMap hardwareMap) {
+    public CollectorBasicAnswerKey(HardwareMap hardwareMap, Telemetry telemetry) {
         // note: there's no need to store hardwareMap as instance data
+        this.telemetry = telemetry;
 
         intakeMotor = hardwareMap.get(DcMotorEx.class, "intake");
         setIntakeState(IntakeState.OFF);
@@ -36,14 +38,12 @@ public class CollectorBasicAnswerKey {
                 intakeMotor.setPower(outtakePower);
                 break;
         }
-    }
 
-    public void printTelemetry(Telemetry telemetry) {
-        // note: I put the "C" prefix on my collector telemetry because FTC Dashboard displays telemetry alphabetically
+        // note: FTC Dashboard displays telemetry alphabetically, so if you want your collector telemetry to group together keep that in mind
         // you don't need to copy this format, but you should find some way to keep your telemetry organized
         telemetry.addLine("---COLLECTOR---");
-        telemetry.addData("C state", intakeState);
-        telemetry.addData("C power", intakeMotor.getPower());
+        telemetry.addData("collector state", intakeState);
+        telemetry.addData("collector power", intakeMotor.getPower());
         // YOU SHOULD NOT HAVE A "telemetry.update();" HERE
     }
 

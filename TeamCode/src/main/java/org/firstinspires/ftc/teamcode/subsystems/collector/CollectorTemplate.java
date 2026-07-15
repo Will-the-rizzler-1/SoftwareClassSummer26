@@ -19,9 +19,6 @@ public class CollectorTemplate {
         // switch statement goes here
     }
 
-    public void printTelemetry(Telemetry telemetry) {
-    }
-
     // finish these functions below
 //    public IntakeState getIntakeState() {
 //    }

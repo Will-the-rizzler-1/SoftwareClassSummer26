@@ -16,7 +16,7 @@ public class CollectorTest extends LinearOpMode {
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
         telemetry.setMsTransmissionInterval(30);
 
-        CollectorChallengeAnswerKey collector = new CollectorChallengeAnswerKey(hardwareMap);
+        CollectorChallengeAnswerKey collector = new CollectorChallengeAnswerKey(hardwareMap, telemetry);
 
         waitForStart();
         while(opModeIsActive()) {
@@ -27,7 +27,7 @@ public class CollectorTest extends LinearOpMode {
             else
                 collector.setIntakeState(CollectorChallengeAnswerKey.IntakeState.OFF);
 
-            collector.printTelemetry(telemetry);
+            // the telemetry.update() should always go in the opMode
             telemetry.update();
         }
     }

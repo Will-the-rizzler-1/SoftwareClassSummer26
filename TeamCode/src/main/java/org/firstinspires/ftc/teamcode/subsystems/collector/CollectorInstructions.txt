@@ -2,26 +2,31 @@ Class Requirements
 an enum called IntakeState with the states OFF, INTAKE, and OUTTAKE
 instance data holding the motor, called intakeMotor (variable type is DcMotorEx)
 instance data of the IntakeState enum
+instance data of a telemetry object
+
+all instance data should be private
+when appropriate, make instance data final
 
 must be configurable in FTC Dashboard (ask us if you don't know what this means)
 
-a constructor taking in HardwareMap and instantiating all instance data above
+a constructor taking in HardwareMap and Telemetry and instantiating all instance data above
 
 an update function
 - has an enum switch statement that sets motor power depending on which state the collector is in
 - create static intakePower and outtakePower variables; use these variables in the switch statement
-
-a printTelemetry function
-- takes in Telemetry as parameter and prints valuable info to telemetry
+- prints "---COLLECTOR---" for the header to telemetry
+- beneath it, print motor power and collector state to telemetry
 
 a getIntakeState function
 - returns current intake state
+
 a setIntakeState function
 - takes 1 parameter (datatype IntakeState)
 - sets the intake state of the collector to the parameter
 
 Challenge: only call motor.setPower when the collector power changes to improve loop times by reducing hardware calls
 
+Explanation: right now motor.setPower is being called every loop in the update function. but in reality it only needs to be called when the desired power CHANGES
 
 
 GOOD VARIABLE NAMES ARE IMPORTANT
